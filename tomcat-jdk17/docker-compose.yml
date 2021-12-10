@@ -3,10 +3,11 @@ services:
    tomcat:
     container_name: tomcat_service
     image: tomcat:jdk17-openjdk-slim
-    # volumes:
+    volumes:
     #   - ./webapps/:/usr/local/tomcat/webapps/
-    #   - ./tomcat-init/conf/:/usr/local/tomcat/conf/
-    #   - ./tomcat-init/manager/META-INF/:/usr/local/tomcat/webapps/manager/META-INF/
+      - ./tomcat-init/conf/:/usr/local/tomcat/conf/
+      - ./tomcat-init/webapps/:/usr/local/tomcat/webapps/
+          #   - ./tomcat-init/manager/META-INF/:/usr/local/tomcat/webapps/manager/META-INF/
     #   - ./tomcat-init/host-manager/META-INF/:/usr/local/tomcat/webapps/host-manager/META-INF/
     ports:
       - '8082:8080'
