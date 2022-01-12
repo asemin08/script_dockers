@@ -7,7 +7,7 @@ services:
        - ./mysql-data:/var/lib/mysql
      restart: always
      environment:
-       MYSQL_ROOT_PASSWORD: 0D2B87E1DE55A9BD89009B37979CACD984AA773C7197BE3F46DCB15B0CAE7E6D
+       MYSQL_ROOT_PASSWORD: password
        MYSQL_USER: webs
      ports:
        - 3306:3306
