@@ -1,18 +1,16 @@
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins:alpine-jdk11
 
 RUN pwd
 
 USER root
 
-RUN \
-# Update
-apt-get update -y && \
-# Install Unzip
-apt-get install unzip -y && \
-# need wget
-apt-get install wget -y && \
-# vim
-apt-get install maven -y
+RUN apk update && \
+    apk upgrade && \
+    apk add git && \
+    apk add maven && \
+    apk add bash && \
+    apk add unzip && \
+    apk add wget
 
 RUN whoami
 
