@@ -16,5 +16,7 @@ RUN \
         chmod +x /usr/local/bin/terraform && \
         terraform --version
 
+RUN which terraform
+
 # drop back to the regular jenkins user - good practice
 USER jenkins
