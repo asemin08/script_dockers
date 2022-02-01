@@ -1,8 +1,10 @@
 FROM jenkins/jenkins:lts
+
+#need root user
 USER root
 
-# Install Tools and software
-RUN apt-get update && apt-get install -y software-properties-common unzip wget
+# Install tools and software
+RUN apt-get update && apt-get install -y software-properties-common unzip wget maven
 
 # Install Terraform
 ARG TERRAFORM_VERSION=1.1.4
@@ -14,7 +16,5 @@ RUN \
         chmod +x /usr/local/bin/terraform && \
         terraform --version
 
-RUN which terraform
-
-# drop back to the regular jenkins user - good practice
+#jenkins user
 USER jenkins
