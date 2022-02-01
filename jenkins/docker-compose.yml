@@ -1,7 +1,7 @@
 version: '3.3'
 services:
    jenkins:
-     build: verkeur08/jenkins-terraform:latest
+     image: verkeur08/jenkins-terraform:latest
      container_name: jenkins
      ports:
        - 8080:8080
