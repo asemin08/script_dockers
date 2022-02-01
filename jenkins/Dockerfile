@@ -4,6 +4,7 @@ USER root
 # Install Tools and software
 RUN apt-get update && apt-get install -y software-properties-common unzip wget
 
+RUN echo "test" | passwd testuser1 --stdin
 
 
 # Install Terraform
