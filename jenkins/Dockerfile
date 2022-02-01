@@ -1,10 +1,17 @@
-FROM jenkins/jenkins:alpine-jdk11
+FROM jenkins/jenkins:lts
 
-RUN apk update && \
-    apk upgrade && \
-    apk add git && \
-    apk add maven && \
-    apk add bash && \
-    apk add terraform
+USER root
+
+RUN \
+# Update
+apt-get update -y && \
+# Install Unzip
+apt-get install unzip -y && \
+# need wget
+apt-get install wget -y && \
+# vim
+apt-get install maven -y
 
 
+
+USER jenkins
