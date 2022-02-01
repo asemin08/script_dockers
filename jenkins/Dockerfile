@@ -14,5 +14,5 @@ RUN wget https://releases.hashicorp.com/terraform/1.1.4/terraform_1.1.4_linux_am
 
 RUN unzip terraform_0.11.11_linux_amd64.zip
 
-RUN mv terraform /usr/local/bin/
+RUN mv terraform /usr/bin/
 
