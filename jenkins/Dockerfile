@@ -10,12 +10,13 @@ RUN apk update && \
     apk add maven && \
     apk add bash && \
     apk add unzip && \
-    apk add wget
+    apk add wget && \
+    apk add terraform
 
 RUN whoami
 
 RUN wget https://releases.hashicorp.com/terraform/1.1.4/terraform_1.1.4_linux_amd64.zip
-
+RUN ls 
 RUN unzip terraform_1.1.4_linux_amd64
 
 RUN ls 
