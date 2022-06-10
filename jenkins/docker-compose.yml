@@ -12,5 +12,3 @@ services:
 volumes:
   jenkins_home:
     driver: local
-  docker:
-    driver: local
