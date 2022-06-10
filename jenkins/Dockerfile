@@ -4,7 +4,7 @@ FROM jenkins/jenkins:jdk17-preview
 USER root
 
 # Install tools and software
-RUN apt-get update && apt-get install -y software-properties-common unzip wget maven
+RUN apt-get update && apt-get install -y software-properties-common unzip wget maven docker-ce docker-ce-cli containerd.io
 
 # Install Terraform
 ARG TERRAFORM_VERSION=1.2.2
