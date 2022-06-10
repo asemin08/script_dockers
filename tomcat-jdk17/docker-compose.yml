@@ -7,4 +7,4 @@ services:
       - ./tomcat-init/conf/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
       - ./tomcat-init/webapps/:/usr/local/tomcat/webapps/
     ports:
-      - '8080:8080'
+      - '8081:8080'
