@@ -4,7 +4,7 @@ FROM jenkins/jenkins:jdk17-preview
 USER root
 
 # Install tools and software
-RUN apt-get update && apt-get install -y software-properties-common unzip wget maven
+RUN apt-get update && apt-get install -y software-properties-common unzip wget maven lsb-release
 
 RUN groupadd docker
 RUN gpasswd -a jenkins docker
@@ -20,5 +20,20 @@ RUN \
         terraform --version
 
 
+# Install docker 
+
+
+RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
+  https://download.docker.com/linux/debian/gpg
+RUN echo "deb [arch=$(dpkg --print-architecture) \
+  signed-by=/usr/share/keyrings/docker-archive-keyring.asc] \
+  https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
+RUN apt-get update && apt-get install -y docker-ce-cli
+
+#RUN groupadd docker
+
+RUN usermod -aG docker jenkins
+
 #jenkins user
-USER jenkins
+#USER jenkins
